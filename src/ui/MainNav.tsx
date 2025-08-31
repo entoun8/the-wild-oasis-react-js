@@ -16,7 +16,7 @@ function MainNav(): React.JSX.Element {
           <NavLink 
             to="/dashboard"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 group ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-all duration-200 group ${
                 isActive ? 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25' : ''
               }`
             }
@@ -29,7 +29,7 @@ function MainNav(): React.JSX.Element {
           <NavLink 
             to="/bookings"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 group ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-all duration-200 group ${
                 isActive ? 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25' : ''
               }`
             }
@@ -42,7 +42,7 @@ function MainNav(): React.JSX.Element {
           <NavLink 
             to="/cabins"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 group ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-all duration-200 group ${
                 isActive ? 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25' : ''
               }`
             }
@@ -55,7 +55,7 @@ function MainNav(): React.JSX.Element {
           <NavLink 
             to="/users"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 group ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-all duration-200 group ${
                 isActive ? 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25' : ''
               }`
             }
@@ -68,7 +68,7 @@ function MainNav(): React.JSX.Element {
           <NavLink 
             to="/settings"
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-slate-800/60 transition-all duration-200 group ${
+              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-slate-800 hover:bg-slate-100 transition-all duration-200 group ${
                 isActive ? 'text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25' : ''
               }`
             }

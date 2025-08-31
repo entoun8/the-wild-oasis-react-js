@@ -1,58 +1,67 @@
 import React, { useState } from "react";
 
-import Button from "../../ui/Button";
-import FileInput from "../../ui/FileInput";
-import Form from "../../ui/Form";
-import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
-
 import { useUser } from "./useUser";
+import { useUpdateUser } from "./useUpdateUser";
 
 function UpdateUserDataForm(): React.JSX.Element {
-  // We don't need the loading state, and can immediately use the user data, because we know that it has already been loaded at this point
-  const {
-    user: {
-      email,
-      user_metadata: { fullName: currentFullName },
-    },
-  } = useUser();
+  const { user } = useUser();
+  const { updateUser, isUpdating } = useUpdateUser();
+  
+  if (!user) return <div className="text-center py-4">Loading...</div>;
+  
+  const email = user.email;
+  const currentFullName = user.user_metadata?.fullName || "";
 
   const [fullName, setFullName] = useState<string>(currentFullName);
   const [avatar, setAvatar] = useState<File | null>(null);
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>): void {
     e.preventDefault();
+    if (!fullName) return;
+    
+    updateUser({ fullName, avatar });
+  }
+  
+  function handleCancel() {
+    setFullName(currentFullName);
+    setAvatar(null);
   }
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <FormRow label="Email address">
-        <Input value={email} disabled />
-      </FormRow>
-      <FormRow label="Full name">
-        <Input
+    <form onSubmit={handleSubmit} className="space-y-4">
+      <div className="flex flex-col">
+        <label htmlFor="email" className="text-sm font-medium text-gray-700 mb-1">Email address</label>
+        <input id="email" value={email} disabled className="px-3 py-2 border border-gray-300 rounded-md bg-gray-50 text-gray-500" />
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="fullName" className="text-sm font-medium text-gray-700 mb-1">Full name</label>
+        <input
           type="text"
           value={fullName}
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => setFullName(e.target.value)}
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+            setFullName(e.target.value)
+          }
           id="fullName"
+          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
         />
-      </FormRow>
-      <FormRow label="Avatar image">
-        <FileInput
+      </div>
+      <div className="flex flex-col">
+        <label htmlFor="avatar" className="text-sm font-medium text-gray-700 mb-1">Avatar image</label>
+        <input
+          type="file"
           id="avatar"
           accept="image/*"
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) => 
+          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
             setAvatar(e.target.files?.[0] || null)
           }
+          className="px-3 py-2 border border-gray-300 rounded-md file:mr-4 file:py-2 file:px-4 file:rounded-md file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
         />
-      </FormRow>
-      <FormRow>
-        <Button type="reset" variation="secondary">
-          Cancel
-        </Button>
-        <Button>Update account</Button>
-      </FormRow>
-    </Form>
+      </div>
+      <div className="flex gap-3 pt-4">
+        <button type="button" onClick={handleCancel} disabled={isUpdating} className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Cancel</button>
+        <button type="submit" disabled={isUpdating} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Update account</button>
+      </div>
+    </form>
   );
 }
 

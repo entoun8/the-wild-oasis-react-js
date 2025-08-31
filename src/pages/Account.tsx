@@ -1,21 +1,21 @@
-import Heading from "../ui/Heading";
-import Row from "../ui/Row";
+import UpdatePasswordForm from "../features/authentication/UpdatePasswordForm";
+import UpdateUserDataForm from "../features/authentication/UpdateUserDataForm";
 
 function Account() {
   return (
-    <>
-      <Heading as="h1">Update your account</Heading>
+    <div className="max-w-4xl mx-auto p-8 space-y-8">
+      <h1 className="text-3xl font-bold text-gray-800 mb-8">Update your account</h1>
 
-      <Row>
-        <Heading as="h3">Update user data</Heading>
-        <p>Update user data form</p>
-      </Row>
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold text-gray-700 mb-4">Update user data</h2>
+        <UpdateUserDataForm />
+      </div>
 
-      <Row>
-        <Heading as="h3">Update password</Heading>
-        <p>Update user password form</p>
-      </Row>
-    </>
+      <div className="bg-white rounded-lg shadow-md p-6">
+        <h2 className="text-xl font-semibold text-gray-700 mb-4">Update password</h2>
+        <UpdatePasswordForm />
+      </div>
+    </div>
   );
 }
 

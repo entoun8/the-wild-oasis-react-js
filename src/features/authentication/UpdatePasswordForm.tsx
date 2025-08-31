@@ -1,9 +1,5 @@
 import React from "react";
 import { useForm, FieldValues } from "react-hook-form";
-import Button from "../../ui/Button";
-import Form from "../../ui/Form";
-import FormRow from "../../ui/FormRow";
-import Input from "../../ui/Input";
 
 import { useUpdateUser } from "./useUpdateUser";
 
@@ -23,12 +19,10 @@ function UpdatePasswordForm(): React.JSX.Element {
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
-      <FormRow
-        label="Password (min 8 characters)"
-        error={errors?.password?.message}
-      >
-        <Input
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <div className="flex flex-col">
+        <label htmlFor="password" className="text-sm font-medium text-gray-700 mb-1">Password (min 8 characters)</label>
+        <input
           type="password"
           id="password"
           autoComplete="current-password"
@@ -40,14 +34,14 @@ function UpdatePasswordForm(): React.JSX.Element {
               message: "Password needs a minimum of 8 characters",
             },
           })}
+          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
         />
-      </FormRow>
+        {errors?.password && <span className="text-sm text-red-600 mt-1">{errors.password.message}</span>}
+      </div>
 
-      <FormRow
-        label="Confirm password"
-        error={errors?.passwordConfirm?.message}
-      >
-        <Input
+      <div className="flex flex-col">
+        <label htmlFor="passwordConfirm" className="text-sm font-medium text-gray-700 mb-1">Confirm password</label>
+        <input
           type="password"
           autoComplete="new-password"
           id="passwordConfirm"
@@ -57,15 +51,17 @@ function UpdatePasswordForm(): React.JSX.Element {
             validate: (value: string) =>
               getValues().password === value || "Passwords need to match",
           })}
+          className="px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent disabled:bg-gray-50 disabled:text-gray-500"
         />
-      </FormRow>
-      <FormRow>
-        <Button onClick={reset} type="reset" variation="secondary">
+        {errors?.passwordConfirm && <span className="text-sm text-red-600 mt-1">{errors.passwordConfirm.message}</span>}
+      </div>
+      <div className="flex gap-3 pt-4">
+        <button onClick={reset} type="reset" className="px-4 py-2 text-gray-700 bg-gray-200 rounded-md hover:bg-gray-300 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">
           Cancel
-        </Button>
-        <Button disabled={isUpdating}>Update password</Button>
-      </FormRow>
-    </Form>
+        </button>
+        <button type="submit" disabled={isUpdating} className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors">Update password</button>
+      </div>
+    </form>
   );
 }
 
