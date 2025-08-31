@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cat:*)",
+      "Bash(del \"C:\\Users\\tonis\\OneDrive\\Desktop\\the-wild-oasis\\src\\data\\Uploader.jsx\")",
+      "Bash(rm:*)"
+    ],
+    "deny": []
+  }
+}
