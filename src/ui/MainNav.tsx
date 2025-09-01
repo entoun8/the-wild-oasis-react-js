@@ -8,15 +8,20 @@ import {
   HiOutlineCog6Tooth,
 } from "react-icons/hi2";
 
-const MainNav: React.FC = () => {
+interface MainNavProps {
+  onItemClick?: () => void;
+}
+
+const MainNav: React.FC<MainNavProps> = ({ onItemClick }) => {
   return (
     <nav>
       <ul className="flex flex-col gap-1">
         <li>
           <NavLink 
             to="/dashboard"
+            onClick={onItemClick}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
+              `flex items-center gap-3 px-3 sm:px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
                 isActive ? 'text-white bg-blue-600' : ''
               }`
             }
@@ -28,8 +33,9 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink 
             to="/bookings"
+            onClick={onItemClick}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
+              `flex items-center gap-3 px-3 sm:px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
                 isActive ? 'text-white bg-blue-600' : ''
               }`
             }
@@ -41,8 +47,9 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink 
             to="/cabins"
+            onClick={onItemClick}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
+              `flex items-center gap-3 px-3 sm:px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
                 isActive ? 'text-white bg-blue-600' : ''
               }`
             }
@@ -54,8 +61,9 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink 
             to="/users"
+            onClick={onItemClick}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
+              `flex items-center gap-3 px-3 sm:px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
                 isActive ? 'text-white bg-blue-600' : ''
               }`
             }
@@ -67,8 +75,9 @@ const MainNav: React.FC = () => {
         <li>
           <NavLink 
             to="/settings"
+            onClick={onItemClick}
             className={({ isActive }) =>
-              `flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
+              `flex items-center gap-3 px-3 sm:px-4 py-3 rounded-xl text-slate-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 group ${
                 isActive ? 'text-white bg-blue-600' : ''
               }`
             }

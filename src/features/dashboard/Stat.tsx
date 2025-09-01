@@ -20,18 +20,18 @@ function Stat({ icon, title, value, color = "blue" }: StatProps): React.JSX.Elem
   const selectedColors = colorClasses[color as keyof typeof colorClasses] || colorClasses.blue;
 
   return (
-    <div className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200">
+    <div className="bg-white rounded-xl p-4 sm:p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200">
       <div className="flex items-center justify-between">
-        <div className={`p-3 rounded-lg bg-gradient-to-br ${selectedColors.split(' text-')[0]} text-white shadow-sm`}>
-          <div className="text-xl">
+        <div className={`p-2 sm:p-3 rounded-lg bg-gradient-to-br ${selectedColors.split(' text-')[0]} text-white shadow-sm`}>
+          <div className="text-lg sm:text-xl">
             {icon}
           </div>
         </div>
         <div className="text-right">
-          <p className="text-2xl font-bold text-slate-800 mb-1">
+          <p className="text-xl sm:text-2xl font-bold text-slate-800 mb-1 break-all">
             {value}
           </p>
-          <h5 className="text-sm font-medium text-slate-600 uppercase tracking-wide">
+          <h5 className="text-xs sm:text-sm font-medium text-slate-600 uppercase tracking-wide">
             {title}
           </h5>
         </div>

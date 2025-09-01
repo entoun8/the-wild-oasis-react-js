@@ -18,7 +18,7 @@ function DashboardLayout() {
   if (loadingBookings || loadingStays || loadingCabins) return <Spinner />;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 sm:space-y-8">
       <Stats
         bookings={bookings}
         confirmedStays={confirmedStays}

@@ -46,34 +46,41 @@ function SalesChart({ bookings = [], numDays = 7 }: SalesChartProps) {
 
   return (
     <DashboardBox data-component="sales-chart" data-variant="grid-full">
-      <div className="flex flex-col gap-6">
-        <div className="flex justify-between items-center">
-          <h2 className="text-xl font-semibold text-slate-800">
+      <div className="flex flex-col gap-4 sm:gap-6">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-2">
+          <h2 className="text-lg sm:text-xl font-semibold text-slate-800 leading-tight">
             Sales from {format(allDates.at(0)!, "MMM dd yyyy")} &mdash;{" "}
             {format(allDates.at(-1)!, "MMM dd yyyy")}
           </h2>
         </div>
 
-        <ResponsiveContainer height={300} width="100%">
-          <AreaChart data={data}>
+        <ResponsiveContainer height={250} width="100%" className="sm:h-[300px]">
+          <AreaChart data={data} margin={{ top: 5, right: 5, left: 5, bottom: 5 }}>
             <XAxis
               dataKey="label"
-              tick={{ fontSize: 12, fill: colors.text }}
+              tick={{ fontSize: 10, fill: colors.text }}
               tickLine={{ stroke: colors.text }}
+              className="sm:text-xs"
+              interval="preserveStartEnd"
             />
             <YAxis
               unit="$"
-              tick={{ fontSize: 12, fill: colors.text }}
+              tick={{ fontSize: 10, fill: colors.text }}
               tickLine={{ stroke: colors.text }}
+              className="sm:text-xs"
+              width={60}
             />
-            <CartesianGrid strokeDasharray="4" />
+            <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
             <Tooltip
               contentStyle={{
                 backgroundColor: colors.background,
                 border: "1px solid #e2e8f0",
                 borderRadius: "8px",
                 boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+                fontSize: "14px",
               }}
+              labelStyle={{ fontWeight: "500", marginBottom: "4px" }}
+              wrapperStyle={{ zIndex: 1000 }}
             />
             <Area
               dataKey="totalSales"
