@@ -1,13 +1,15 @@
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { HiOutlineUser } from "react-icons/hi2";
 import Logout from "../features/authentication/Logout";
 
-const HeaderMenu = () => {
+const HeaderMenu: React.FC = () => {
   const navigate = useNavigate();
+
   return (
     <ul className="flex items-center gap-2">
       <li>
-        <button 
+        <button
           onClick={() => navigate("/account")}
           className="p-2 rounded-lg hover:bg-slate-100 transition-colors duration-200 text-slate-600 hover:text-slate-800"
           title="Account Settings"

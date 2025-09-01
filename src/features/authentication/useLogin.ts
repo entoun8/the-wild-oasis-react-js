@@ -1,13 +1,18 @@
 import { useMutation } from "@tanstack/react-query";
 import { login as loginApi } from "../../services/apiAuth";
 import toast from "react-hot-toast/headless";
-import { data, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
+interface LoginCredentials {
+  email: string;
+  password: string;
+}
 
 export const useLogin = () => {
   const navigate = useNavigate();
 
-  const { mutate: login, isLoading } = useMutation({
-    mutationFn: ({ email, password }) => loginApi({ email, password }),
+  const { mutate: login, isPending: isLoading } = useMutation({
+    mutationFn: ({ email, password }: LoginCredentials) => loginApi({ email, password }),
 
     onSuccess: (user) => {
       toast.success("user logged in");

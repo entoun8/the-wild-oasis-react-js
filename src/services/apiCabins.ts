@@ -1,6 +1,6 @@
 import supabase, { supabaseUrl } from "./supabase";
 
-export const getCabins = async ({ filter } = {}) => {
+export const getCabins = async ({ filter, sortBy } = {}) => {
   let query = supabase.from("cabins").select("*");
 
   if (filter) {
@@ -11,6 +11,12 @@ export const getCabins = async ({ filter } = {}) => {
     } else {
       query = query[filter.method || "eq"](filter.filterField, filter.value);
     }
+  }
+
+  if (sortBy) {
+    query = query.order(sortBy.field, {
+      ascending: sortBy.direction === "asc",
+    });
   }
 
   const { data, error } = await query;

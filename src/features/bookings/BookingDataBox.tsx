@@ -1,3 +1,4 @@
+import React from "react";
 import { format, isToday } from "date-fns";
 import {
   HiOutlineChatBubbleBottomCenterText,
@@ -8,8 +9,39 @@ import {
 
 import { formatDistanceFromNow, formatCurrency } from "../../utils/helpers";
 
-// A purely presentational component
-function BookingDataBox({ booking }) {
+interface BookingGuest {
+  fullName: string;
+  email: string;
+  country?: string;
+  countryFlag?: string;
+  nationalID: string;
+}
+
+interface BookingCabin {
+  name: string;
+}
+
+interface Booking {
+  created_at: string;
+  startDate: string;
+  endDate: string;
+  numNights: number;
+  numGuests: number;
+  cabinPrice: number;
+  extrasPrice: number;
+  totalPrice: number;
+  hasBreakfast: boolean;
+  observations?: string;
+  isPaid: boolean;
+  guests: BookingGuest;
+  cabins: BookingCabin;
+}
+
+interface BookingDataBoxProps {
+  booking: Booking;
+}
+
+const BookingDataBox: React.FC<BookingDataBoxProps> = ({ booking }) => {
   const {
     created_at,
     startDate,
@@ -112,6 +144,6 @@ function BookingDataBox({ booking }) {
       </footer>
     </section>
   );
-}
+};
 
 export default BookingDataBox;

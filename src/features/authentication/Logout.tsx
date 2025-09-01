@@ -1,12 +1,13 @@
+import React from "react";
 import { HiArrowRightOnRectangle } from "react-icons/hi2";
 import { useLogout } from "./useLogout";
 
-const Logout = () => {
+const Logout: React.FC = () => {
   const { logout, isLoading } = useLogout();
 
   return (
     <button 
-      onClick={logout}
+      onClick={() => logout()}
       disabled={isLoading}
       className="p-2 rounded-lg hover:bg-red-50 hover:text-red-600 transition-colors duration-200 disabled:opacity-50 text-slate-600"
       title="Logout"

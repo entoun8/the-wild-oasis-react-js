@@ -1,16 +1,21 @@
+import React from "react";
 import UpdateSettingsForm from "../features/settings/UpdateSettingsForm";
 
-const Settings = () => {
+const Settings: React.FC = () => {
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-      <header className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Update hotel settings</h1>
-        <p className="mt-2 text-gray-600">
-          Manage your hotel's operational settings and preferences
-        </p>
-      </header>
-      <UpdateSettingsForm />
-    </div>
+    <main className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100/50 p-6">
+      <div className="max-w-4xl mx-auto">
+        <header className="mb-8 bg-white/80 backdrop-blur-sm rounded-2xl shadow-lg shadow-slate-200/50 p-8 border border-slate-200/60">
+          <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent mb-2">
+            Hotel Settings
+          </h1>
+          <p className="text-slate-600 text-lg">
+            Manage your hotel's operational settings and preferences
+          </p>
+        </header>
+        <UpdateSettingsForm />
+      </div>
+    </main>
   );
 };
 

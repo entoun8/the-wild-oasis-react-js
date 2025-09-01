@@ -1,7 +1,8 @@
+import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <header className="bg-white/95 backdrop-blur-md border-b border-slate-200 px-6 py-4 flex justify-between items-center shadow-sm sticky top-0 z-50">
       <div className="flex items-center">

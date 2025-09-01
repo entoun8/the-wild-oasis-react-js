@@ -6,7 +6,11 @@ interface DashboardBoxProps extends React.HTMLAttributes<HTMLDivElement> {
 
 function DashboardBox({ children, ...props }: DashboardBoxProps): React.JSX.Element {
   return (
-    <div data-dashboard-box="true" {...props}>
+    <div 
+      className="bg-white rounded-xl p-6 shadow-sm border border-slate-200 hover:shadow-md transition-all duration-200"
+      data-dashboard-box="true" 
+      {...props}
+    >
       {children}
     </div>
   );

@@ -2,15 +2,6 @@ import { useForm } from "react-hook-form";
 import { useCreateCabin } from "./useCreateCabin";
 import { useEditCabin } from "./useEditCabin";
 
-interface CabinFormData {
-  name: string;
-  maxCapacity: number;
-  regularPrice: number;
-  discount: number;
-  description: string;
-  image: FileList;
-}
-
 interface CabinToEdit {
   id?: number;
   name?: string;
@@ -43,7 +34,7 @@ const CabinForm = ({
   const onSubmit = (data: any) => {
     const image = typeof data.image === "string" ? data.image : data.image?.[0];
 
-    if (isEditingSession)
+    if (isEditingSession && editId)
       editCabin({ newCabinData: { ...data, image: image }, id: editId });
     else createCabin({ ...data, image: image });
     onCloseModal?.();

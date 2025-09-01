@@ -33,7 +33,7 @@ export const useBookings = () => {
     queryFn: () => getBookings({ filter, sortBy, page: currentPage }),
   });
 
-  const pageCount = Math.ceil(count / PAGE_SIZE);
+  const pageCount = Math.ceil((count || 0) / PAGE_SIZE);
 
   if (currentPage < pageCount) {
     queryClient.prefetchQuery({

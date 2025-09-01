@@ -3,7 +3,7 @@ import { getCabins } from "../../services/apiCabins";
 import { useSearchParams } from "react-router-dom";
 
 export const useCabins = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
 
   const filterValue = searchParams.get("discount");
 
@@ -12,13 +12,18 @@ export const useCabins = () => {
       ? null
       : { filterField: "discount", value: filterValue, method: "eq" };
 
+  const sortByRaw = searchParams.get("sortBy") || "name-asc";
+  const [field, direction] = sortByRaw.split("-");
+
+  const sortBy = { field, direction };
+
   const {
     isLoading,
     data: cabins,
     error,
   } = useQuery({
-    queryKey: ["cabins", filter],
-    queryFn: () => getCabins({ filter }),
+    queryKey: ["cabins", filter, sortBy],
+    queryFn: () => getCabins({ filter, sortBy }),
   });
 
   return { isLoading, cabins, error };

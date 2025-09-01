@@ -6,7 +6,7 @@ export const useCreateCabin = () => {
   const queryClient = useQueryClient();
 
   const { isPending: isCreating, mutate: createCabin } = useMutation({
-    mutationFn: createEditCabinApi,
+    mutationFn: (newCabin: any) => createEditCabinApi(newCabin, undefined),
     onSuccess: () => {
       toast.success("New cabin succesfully created");
       queryClient.invalidateQueries({ queryKey: ["cabins"] });

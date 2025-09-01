@@ -1,15 +1,16 @@
+import React from "react";
 import Filter from "../../ui/Filter";
 import SortBy from "../../ui/SortBy";
 
-const CabinsTableOperations = () => {
+const CabinsTableOperations: React.FC = () => {
   return (
-    <div>
+    <div className="flex items-center gap-4">
       <Filter
         filterField="discount"
         options={[
-          { value: "all", label: "all" },
-          { value: "discount", label: "discount" },
-          { value: "no-discount", label: "no-discount" },
+          { value: "all", label: "All" },
+          { value: "discount", label: "With discount" },
+          { value: "no-discount", label: "No discount" },
         ]}
       />
       <SortBy

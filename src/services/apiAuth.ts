@@ -1,6 +1,23 @@
 import supabase, { supabaseUrl } from "./supabase";
 
-export const signup = async ({ email, password, fullName }) => {
+interface SignupData {
+  email: string;
+  password: string;
+  fullName: string;
+}
+
+interface LoginData {
+  email: string;
+  password: string;
+}
+
+interface UpdateUserData {
+  fullName?: string;
+  password?: string;
+  avatar?: File | null;
+}
+
+export const signup = async ({ email, password, fullName }: SignupData) => {
   const { data, error } = await supabase.auth.signUp({
     email: email,
     password: password,
@@ -17,7 +34,7 @@ export const signup = async ({ email, password, fullName }) => {
   return data;
 };
 
-export const login = async ({ email, password }) => {
+export const login = async ({ email, password }: LoginData) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email: email,
     password: password,
@@ -51,7 +68,7 @@ export const getCurrentUser = async () => {
   return user;
 };
 
-export const updateCurrentUser = async ({ fullName, password, avatar }) => {
+export const updateCurrentUser = async ({ fullName, password, avatar }: UpdateUserData) => {
   let updateData;
 
   if (fullName) updateData = { data: { fullName } };

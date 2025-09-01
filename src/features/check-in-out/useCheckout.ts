@@ -6,7 +6,7 @@ export const useCheckout = () => {
   const queryClient = useQueryClient();
 
   const { mutate: checkout, isLoading: isCheckout } = useMutation({
-    mutationFn: (bookingId) =>
+    mutationFn: (bookingId: number) =>
       updateBooking(bookingId, {
         status: "checked-out",
       }),

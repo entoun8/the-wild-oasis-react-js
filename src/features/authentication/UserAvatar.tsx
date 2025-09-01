@@ -1,7 +1,7 @@
 import React from "react";
 import { useUser } from "./useUser";
 
-function UserAvatar(): React.JSX.Element {
+const UserAvatar: React.FC = () => {
   const { user } = useUser();
   const { fullName, avatar } = user?.user_metadata || {};
 
@@ -19,11 +19,10 @@ function UserAvatar(): React.JSX.Element {
       {fullName && (
         <div className="flex flex-col">
           <span className="text-sm font-semibold text-slate-800">{fullName}</span>
-          <span className="text-xs text-slate-500">Online</span>
         </div>
       )}
     </div>
   );
-}
+};
 
 export default UserAvatar;

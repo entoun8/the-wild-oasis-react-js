@@ -1,6 +1,14 @@
 import supabase from "./supabase";
 
-export async function getSettings() {
+interface Settings {
+  id: number;
+  minBookingLength: number;
+  maxBookingLength: number;
+  maxNumberOfGuestPerBooking: number;
+  breakfastPrice: number;
+}
+
+export async function getSettings(): Promise<Settings> {
   const { data, error } = await supabase.from("settings").select("*").single();
 
   if (error) {
@@ -10,11 +18,12 @@ export async function getSettings() {
   return data;
 }
 
-export async function updateSettingApi(newSetting) {
+export async function updateSettingApi(newSetting: Partial<Settings>): Promise<Settings> {
   const { data, error } = await supabase
     .from("settings")
     .update(newSetting)
     .eq("id", 1)
+    .select()
     .single();
 
   if (error) {

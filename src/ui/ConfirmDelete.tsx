@@ -1,4 +1,13 @@
-function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
+import React from "react";
+
+interface ConfirmDeleteProps {
+  resourceName: string;
+  onConfirm: () => void;
+  disabled: boolean;
+  onCloseModal?: () => void;
+}
+
+const ConfirmDelete: React.FC<ConfirmDeleteProps> = ({ resourceName, onConfirm, disabled, onCloseModal }) => {
   return (
     <div className="max-w-md">
       <h3 className="text-lg font-semibold text-gray-900 mb-3">
@@ -27,6 +36,6 @@ function ConfirmDelete({ resourceName, onConfirm, disabled, onCloseModal }) {
       </div>
     </div>
   );
-}
+};
 
 export default ConfirmDelete;

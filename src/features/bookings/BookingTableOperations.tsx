@@ -1,9 +1,10 @@
+import React from "react";
 import SortBy from "../../ui/SortBy";
 import Filter from "../../ui/Filter";
 
-function BookingTableOperations() {
+const BookingTableOperations: React.FC = () => {
   return (
-    <div>
+    <div className="flex items-center gap-4">
       <Filter
         filterField="status"
         options={[
@@ -27,6 +28,6 @@ function BookingTableOperations() {
       />
     </div>
   );
-}
+};
 
 export default BookingTableOperations;
