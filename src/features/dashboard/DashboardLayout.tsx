@@ -7,12 +7,7 @@ import Stats from "./Stats";
 
 function DashboardLayout() {
   const { bookings, isLoading: loadingBookings } = useRecentBookings();
-  const {
-    stays,
-    confirmedStays,
-    isLoading: loadingStays,
-    numDays,
-  } = useRecentStays();
+  const { confirmedStays, isLoading: loadingStays, numDays } = useRecentStays();
   const { cabins, isLoading: loadingCabins } = useCabins();
 
   if (loadingBookings || loadingStays || loadingCabins) return <Spinner />;
