@@ -6,16 +6,7 @@ import CabinForm from "./CabinForm";
 import { useCreateCabin } from "./useCreateCabin";
 import Modal from "../../ui/Modal";
 import ConfirmDelete from "../../ui/ConfirmDelete";
-
-interface Cabin {
-  id: number;
-  image: string;
-  name: string;
-  maxCapacity: number;
-  regularPrice: number;
-  discount: number;
-  description?: string;
-}
+import type { Cabin } from "../../types";
 
 const CabinRow: React.FC<{ cabin: Cabin }> = ({ cabin }) => {
   const { isDeleting, deleteCabin } = useDeleteCabin();

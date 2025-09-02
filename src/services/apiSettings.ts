@@ -1,12 +1,5 @@
 import supabase from "./supabase";
-
-interface Settings {
-  id: number;
-  minBookingLength: number;
-  maxBookingLength: number;
-  maxNumberOfGuestPerBooking: number;
-  breakfastPrice: number;
-}
+import type { Settings } from "../types";
 
 export async function getSettings(): Promise<Settings> {
   const { data, error } = await supabase.from("settings").select("*").single();

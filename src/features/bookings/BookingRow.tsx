@@ -12,25 +12,9 @@ import ConfirmDelete from "../../ui/ConfirmDelete";
 import { useNavigate } from "react-router-dom";
 import { useCheckout } from "../check-in-out/useCheckout";
 import { useDeleteBooking } from "./useDeleteBooking";
+import type { BookingWithGuestAndCabin } from "../../types";
 
-interface Booking {
-  id: number;
-  startDate: string;
-  endDate: string;
-  numNights: number;
-  numGuests: number;
-  totalPrice: number;
-  status: "unconfirmed" | "checked-in" | "checked-out";
-  guests: {
-    fullName: string;
-    email: string;
-  };
-  cabins: {
-    name: string;
-  };
-}
-
-const BookingRow: React.FC<{ booking: Booking }> = ({ booking }) => {
+const BookingRow: React.FC<{ booking: BookingWithGuestAndCabin }> = ({ booking }) => {
   const {
     id: bookingId,
     startDate,

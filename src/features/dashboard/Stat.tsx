@@ -1,11 +1,5 @@
 import React from "react";
-
-interface StatProps {
-  icon: React.ReactNode;
-  title: string;
-  value: string | number;
-  color?: string;
-}
+import type { StatProps } from "../../types";
 
 function Stat({ icon, title, value, color = "blue" }: StatProps): React.JSX.Element {
   const colorClasses = {

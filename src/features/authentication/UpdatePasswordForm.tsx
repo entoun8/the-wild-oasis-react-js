@@ -1,20 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-
 import { useUpdateUser } from "./useUpdateUser";
-
-interface FormData {
-  password: string;
-  passwordConfirm: string;
-}
+import type { UpdatePasswordFormData } from "../../types";
 
 function UpdatePasswordForm(): React.JSX.Element {
-  const { register, handleSubmit, formState, getValues, reset } = useForm<FormData>();
+  const { register, handleSubmit, formState, getValues, reset } = useForm<UpdatePasswordFormData>();
   const { errors } = formState;
 
   const { updateUser, isUpdating } = useUpdateUser();
 
-  function onSubmit({ password }: FormData): void {
+  function onSubmit({ password }: UpdatePasswordFormData): void {
     updateUser({ password }, { onSuccess: () => reset() });
   }
 

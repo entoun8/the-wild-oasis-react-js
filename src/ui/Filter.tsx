@@ -1,15 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-
-interface FilterOption {
-  value: string;
-  label: string;
-}
-
-interface FilterProps {
-  filterField: string;
-  options: FilterOption[];
-}
+import type { FilterProps } from "../types";
 
 const Filter: React.FC<FilterProps> = ({ filterField, options }) => {
   const [searchParams, setSearchParams] = useSearchParams();

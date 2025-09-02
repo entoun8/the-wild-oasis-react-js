@@ -1,14 +1,6 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
-
-interface SortOption {
-  value: string;
-  label: string;
-}
-
-interface SortByProps {
-  options: SortOption[];
-}
+import type { SortByProps } from "../types";
 
 const SortBy: React.FC<SortByProps> = ({ options }) => {
   const [searchParams, setSearchParams] = useSearchParams();

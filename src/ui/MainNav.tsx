@@ -7,10 +7,7 @@ import {
   HiOutlineUsers,
   HiOutlineCog6Tooth,
 } from "react-icons/hi2";
-
-interface MainNavProps {
-  onItemClick?: () => void;
-}
+import type { MainNavProps } from "../types";
 
 const MainNav: React.FC<MainNavProps> = ({ onItemClick }) => {
   return (

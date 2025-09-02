@@ -1,12 +1,7 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import toast from "react-hot-toast";
 import { updateCurrentUser } from "../../services/apiAuth";
-
-interface UpdateUserData {
-  fullName?: string;
-  password?: string;
-  avatar?: File | null;
-}
+import type { UpdateUserData } from "../../types";
 
 export function useUpdateUser() {
   const queryClient = useQueryClient();

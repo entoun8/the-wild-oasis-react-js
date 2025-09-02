@@ -1,10 +1,7 @@
 import React from "react";
 import Logo from "./Logo";
 import MainNav from "./MainNav";
-
-interface SidebarProps {
-  onClose?: () => void;
-}
+import type { SidebarProps } from "../types";
 
 const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   return (

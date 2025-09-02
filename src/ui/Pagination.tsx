@@ -1,10 +1,7 @@
 import React from "react";
 import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../utils/constants";
-
-interface PaginationProps {
-  count: number;
-}
+import type { PaginationProps } from "../types";
 
 const Pagination: React.FC<PaginationProps> = ({ count }) => {
   const [searchParams, setSearchParams] = useSearchParams();

@@ -2,13 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { HiXMark, HiUserPlus } from "react-icons/hi2";
 import { useSignup } from "./useSignup";
-
-interface FormData {
-  email: string;
-  password: string;
-  fullName: string;
-  passwordConfirm: string;
-}
+import type { SignupFormData } from "../../types";
 
 const SignupForm: React.FC = () => {
   const { signup, isLoading } = useSignup();
@@ -19,9 +13,9 @@ const SignupForm: React.FC = () => {
     formState: { errors },
     getValues,
     reset,
-  } = useForm<FormData>();
+  } = useForm<SignupFormData>();
 
-  const onSubmit = ({ email, password, fullName }: FormData) => {
+  const onSubmit = ({ email, password, fullName }: SignupFormData) => {
     signup({ email, password, fullName }, { onSettled: () => reset() });
   };
 

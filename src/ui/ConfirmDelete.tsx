@@ -1,11 +1,5 @@
 import React from "react";
-
-interface ConfirmDeleteProps {
-  resourceName: string;
-  onConfirm: () => void;
-  disabled: boolean;
-  onCloseModal?: () => void;
-}
+import type { ConfirmDeleteProps } from "../types";
 
 const ConfirmDelete: React.FC<ConfirmDeleteProps> = ({ resourceName, onConfirm, disabled, onCloseModal }) => {
   return (

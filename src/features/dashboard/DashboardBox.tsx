@@ -1,8 +1,5 @@
 import React from "react";
-
-interface DashboardBoxProps extends React.HTMLAttributes<HTMLDivElement> {
-  children: React.ReactNode;
-}
+import type { DashboardBoxProps } from "../../types";
 
 function DashboardBox({
   children,

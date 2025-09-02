@@ -1,10 +1,7 @@
 import React from "react";
 import HeaderMenu from "./HeaderMenu";
 import UserAvatar from "../features/authentication/UserAvatar";
-
-interface HeaderProps {
-  onToggleSidebar?: () => void;
-}
+import type { HeaderProps } from "../types";
 
 const Header: React.FC<HeaderProps> = ({ onToggleSidebar }) => {
   return (

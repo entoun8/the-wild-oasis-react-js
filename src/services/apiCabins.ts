@@ -1,6 +1,12 @@
 import supabase, { supabaseUrl } from "./supabase";
+import type { Cabin, FilterOption, SortOption, CabinFormData } from "../types";
 
-export const getCabins = async ({ filter, sortBy } = {}) => {
+interface GetCabinsOptions {
+  filter?: FilterOption;
+  sortBy?: SortOption;
+}
+
+export const getCabins = async ({ filter, sortBy }: GetCabinsOptions = {}): Promise<Cabin[]> => {
   let query = supabase.from("cabins").select("*");
 
   if (filter) {
@@ -28,7 +34,7 @@ export const getCabins = async ({ filter, sortBy } = {}) => {
   return data;
 };
 
-export const deleteCabinApi = async (id) => {
+export const deleteCabinApi = async (id: number): Promise<void> => {
   const { error } = await supabase.from("cabins").delete().eq("id", id);
 
   if (error) {
@@ -36,10 +42,10 @@ export const deleteCabinApi = async (id) => {
   }
 };
 
-export const createEditCabinApi = async (newCabin, id) => {
-  const hasImagePath = newCabin.image?.startsWith?.(supabaseUrl);
+export const createEditCabinApi = async (newCabin: CabinFormData, id?: number) => {
+  const hasImagePath = typeof newCabin.image === 'string' && newCabin.image.startsWith(supabaseUrl);
 
-  const imageName = `${Math.random()}-${newCabin.image.name}`.replaceAll(
+  const imageName = `${Math.random()}-${typeof newCabin.image !== 'string' ? newCabin.image.name : 'image'}`.replaceAll(
     "/",
     ""
   );

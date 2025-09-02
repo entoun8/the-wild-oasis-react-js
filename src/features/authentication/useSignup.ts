@@ -1,12 +1,7 @@
 import { useMutation } from "@tanstack/react-query";
 import { signup as signupApi } from "../../services/apiAuth";
 import toast from "react-hot-toast";
-
-interface SignupData {
-  email: string;
-  password: string;
-  fullName: string;
-}
+import type { SignupData } from "../../types";
 
 export const useSignup = () => {
   const { mutate: signup, isPending: isLoading } = useMutation({

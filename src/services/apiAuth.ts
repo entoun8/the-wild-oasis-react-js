@@ -1,21 +1,5 @@
 import supabase, { supabaseUrl } from "./supabase";
-
-interface SignupData {
-  email: string;
-  password: string;
-  fullName: string;
-}
-
-interface LoginData {
-  email: string;
-  password: string;
-}
-
-interface UpdateUserData {
-  fullName?: string;
-  password?: string;
-  avatar?: File | null;
-}
+import type { SignupData, LoginData, UpdateUserData } from "../types";
 
 export const signup = async ({ email, password, fullName }: SignupData) => {
   const { data, error } = await supabase.auth.signUp({
