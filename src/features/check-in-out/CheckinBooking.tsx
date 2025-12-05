@@ -10,7 +10,7 @@ import { useSettings } from "../settings/useSettings";
 
 function CheckinBooking() {
   const { booking, isLoading } = useBooking();
-  const { settings, isLoadingSettings } = useSettings();
+  const { settings, isLoading: isLoadingSettings } = useSettings();
   const { checkin, isCheckin } = useCheckin();
   const { checkout, isCheckout } = useCheckout();
 

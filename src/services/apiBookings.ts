@@ -20,7 +20,14 @@ export async function getBookings({ filter, sortBy, page }: GetBookingsOptions =
     .select("*, cabins(name), guests(fullName, email)", { count: "exact" });
 
   if (filter) {
-    query = query[filter.method || "eq"](filter.filterField, filter.value);
+    const method = filter.method || "eq";
+    if (method === "eq") {
+      query = query.eq(filter.filterField, filter.value);
+    } else if (method === "gte") {
+      query = query.gte(filter.filterField, filter.value);
+    } else if (method === "lte") {
+      query = query.lte(filter.filterField, filter.value);
+    }
   }
 
   if (sortBy) {

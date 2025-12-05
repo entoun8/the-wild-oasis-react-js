@@ -15,7 +15,14 @@ export const getCabins = async ({ filter, sortBy }: GetCabinsOptions = {}): Prom
     } else if (filter.value === "discount") {
       query = query.gt("discount", 0);
     } else {
-      query = query[filter.method || "eq"](filter.filterField, filter.value);
+      const method = filter.method || "eq";
+      if (method === "eq") {
+        query = query.eq(filter.filterField, filter.value);
+      } else if (method === "gte") {
+        query = query.gte(filter.filterField, filter.value);
+      } else if (method === "lte") {
+        query = query.lte(filter.filterField, filter.value);
+      }
     }
   }
 
@@ -53,20 +60,19 @@ export const createEditCabinApi = async (newCabin: CabinFormData, id?: number) =
     ? newCabin.image
     : `${supabaseUrl}/storage/v1/object/public/cabin-images/${imageName}`;
 
-  let query = supabase.from("cabins");
+  let query;
 
   if (!id) {
-    query = query.insert([{ ...newCabin, image: imagePath }]);
-  }
-
-  if (id) {
-    query = query
+    query = supabase.from("cabins").insert([{ ...newCabin, image: imagePath }]).select().single();
+  } else {
+    query = supabase.from("cabins")
       .update({ ...newCabin, image: imagePath })
       .eq("id", id)
-      .select();
+      .select()
+      .single();
   }
 
-  const { data, error } = await query.select().single();
+  const { data, error } = await query;
 
   if (error) {
     throw new Error("Cabins could not be created");

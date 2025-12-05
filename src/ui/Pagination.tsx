@@ -14,13 +14,13 @@ const Pagination: React.FC<PaginationProps> = ({ count }) => {
 
   const handleNext = () => {
     const next = currentPage === pageCount ? currentPage : currentPage + 1;
-    searchParams.set("page", next);
+    searchParams.set("page", String(next));
     setSearchParams(searchParams);
   };
 
   const handlePrev = () => {
     const prev = currentPage === 1 ? currentPage : currentPage - 1;
-    searchParams.set("page", prev);
+    searchParams.set("page", String(prev));
     setSearchParams(searchParams);
   };
 
