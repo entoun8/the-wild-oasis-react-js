@@ -3,12 +3,12 @@ import Logo from "../ui/Logo";
 
 function Login() {
   return (
-    <main className="min-h-screen bg-slate-50 flex items-center justify-center p-6">
+    <main className="min-h-screen bg-gray-50/30 flex items-center justify-center p-6">
       <div className="w-full max-w-md">
         {/* Main Login Card - matches your website's card styling */}
-        <div className="bg-white/95 backdrop-blur-md rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
           {/* Header Section */}
-          <div className="px-8 py-6 text-center border-b border-slate-200/60">
+          <div className="px-8 py-6 text-center border-b border-slate-200">
             <div className="mb-4">
               <Logo />
             </div>

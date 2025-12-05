@@ -5,13 +5,13 @@ import type { SidebarProps } from "../types";
 
 const Sidebar: React.FC<SidebarProps> = ({ onClose }) => {
   return (
-    <aside className="h-full bg-white/98 backdrop-blur-md border-r border-slate-200 px-4 sm:px-6 py-6 sm:py-8 flex flex-col gap-6 sm:gap-8 shadow-xl lg:shadow-lg">
+    <aside className="h-full bg-white border-r border-slate-200 px-4 sm:px-6 py-6 sm:py-8 flex flex-col gap-6 sm:gap-8 shadow-xl lg:shadow-lg">
       {/* Mobile Header with Close Button */}
       <div className="flex justify-between items-center lg:block">
         <Logo />
         <button
           onClick={onClose}
-          className="lg:hidden p-2 rounded-lg hover:bg-slate-100 transition-colors duration-200 -mr-2"
+          className="lg:hidden p-2 rounded-lg hover:bg-gray-50 transition-colors duration-200 -mr-2"
           aria-label="Close sidebar"
         >
           <svg className="w-5 h-5 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

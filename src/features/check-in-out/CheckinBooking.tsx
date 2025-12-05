@@ -77,7 +77,7 @@ function CheckinBooking() {
           </div>
           <button
             onClick={moveBack}
-            className="flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-slate-800 hover:bg-slate-50 rounded-lg transition-all duration-200 font-medium"
+            className="flex items-center gap-2 px-4 py-2 text-slate-600 hover:text-slate-800 hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -154,7 +154,7 @@ function CheckinBooking() {
       <div className="flex justify-between items-center bg-white rounded-xl p-6 shadow-sm border border-slate-200">
         <button
           onClick={moveBack}
-          className="px-6 py-2.5 border border-slate-300 rounded-lg text-slate-700 bg-white hover:bg-slate-50 font-medium transition-all duration-200 hover:shadow-sm"
+          className="px-6 py-2.5 border border-slate-300 rounded-lg text-slate-700 bg-white hover:bg-gray-50 font-medium transition-all duration-200 hover:shadow-sm"
         >
           Cancel
         </button>

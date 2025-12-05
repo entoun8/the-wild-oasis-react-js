@@ -30,7 +30,7 @@ const BookingDetail: React.FC = () => {
 
   return (
     <div className="space-y-8">
-      <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-lg shadow-slate-200/50 p-8 border border-slate-200/60">
+      <div className="bg-white rounded-xl shadow-sm border border-slate-200 p-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-6">
             <h1 className="text-3xl font-bold bg-gradient-to-r from-slate-800 to-slate-600 bg-clip-text text-transparent">
@@ -42,7 +42,7 @@ const BookingDetail: React.FC = () => {
           </div>
           <button
             onClick={moveBack}
-            className="px-6 py-3 text-slate-600 hover:text-slate-800 bg-slate-100 hover:bg-slate-200 rounded-xl font-medium transition-all duration-200 hover:scale-105"
+            className="px-6 py-3 text-slate-600 hover:text-slate-800 bg-gray-50 hover:bg-gray-100 rounded-xl font-medium transition-all duration-200 hover:scale-105"
           >
             ← Back
           </button>
@@ -54,7 +54,7 @@ const BookingDetail: React.FC = () => {
       <div className="flex justify-end">
         <button
           onClick={moveBack}
-          className="px-8 py-3 bg-white/90 backdrop-blur-sm border border-slate-200 rounded-xl text-slate-700 hover:bg-slate-50 hover:text-slate-800 font-medium shadow-lg transition-all duration-200 hover:scale-105"
+          className="px-8 py-3 bg-white border border-slate-200 rounded-xl text-slate-700 hover:bg-gray-50 hover:text-slate-800 font-medium shadow-sm transition-all duration-200 hover:scale-105"
         >
           Back to Bookings
         </button>

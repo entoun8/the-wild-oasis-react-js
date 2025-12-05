@@ -40,7 +40,7 @@ const UpdateSettingsForm: React.FC = () => {
 
 
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/40 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
       <form onSubmit={handleSubmit} className="divide-y divide-slate-200/50">
         <div className="px-8 py-6">
           <div className="grid grid-cols-1 gap-y-8 sm:grid-cols-3 sm:gap-x-8">

@@ -10,10 +10,10 @@ const CabinTable: React.FC = () => {
   if (error) return <div>Error loading cabins</div>;
 
   return (
-    <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-xl shadow-slate-200/60 border border-slate-200/40 overflow-hidden">
+    <div className="bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-slate-200/50">
-          <thead className="bg-gradient-to-r from-slate-50 to-white">
+        <table className="min-w-full divide-y divide-slate-200">
+          <thead className="bg-gray-50">
             <tr>
               <th className="px-6 py-4 text-left text-xs font-semibold text-slate-600 uppercase tracking-wider">
                 Image

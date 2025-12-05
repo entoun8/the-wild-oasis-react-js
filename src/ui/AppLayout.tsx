@@ -7,7 +7,7 @@ const AppLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
   return (
-    <div className="flex h-screen bg-slate-50">
+    <div className="flex h-screen bg-gray-50/30">
       {/* Mobile Sidebar Overlay */}
       {sidebarOpen && (
         <div 
@@ -28,7 +28,7 @@ const AppLayout = () => {
       {/* Main Content */}
       <div className="flex flex-col flex-1 lg:ml-0">
         <Header onToggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
-        <main className="bg-slate-50 flex-1 overflow-y-auto">
+        <main className="bg-transparent flex-1 overflow-y-auto">
           <Outlet />
         </main>
       </div>

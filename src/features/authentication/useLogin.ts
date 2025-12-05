@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
 import { login as loginApi } from "../../services/apiAuth";
-import toast from "react-hot-toast/headless";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import type { LoginData } from "../../types";
 
