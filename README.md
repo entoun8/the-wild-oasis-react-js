@@ -126,8 +126,8 @@ Filter, sort, and pagination state stored in URL parameters for:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/entoun8/the-wild-oasis.git
-cd the-wild-oasis
+git clone https://github.com/entoun8/the-wild-oasis-react-js.git
+cd the-wild-oasis-react-js
 ```
 
 ### 2. Install Dependencies
