@@ -2,6 +2,7 @@ import { useQuery, useQueryClient } from "@tanstack/react-query";
 import { getBookings } from "../../services/apiBookings";
 import { useSearchParams } from "react-router-dom";
 import { PAGE_SIZE } from "../../utils/constants";
+import type { FilterOption, SortOption } from "../../types";
 
 export const useBookings = () => {
   const [searchParams] = useSearchParams();
@@ -10,15 +11,18 @@ export const useBookings = () => {
 
   const filterValue = searchParams.get("status");
 
-  const filter =
+  const filter: FilterOption | undefined =
     !filterValue || filterValue === "all"
-      ? null
+      ? undefined
       : { filterField: "status", value: filterValue, method: "eq" };
 
   const sortByRaw = searchParams.get("sortBy") || "startDate-desc";
   const [field, direction] = sortByRaw.split("-");
 
-  const sortBy = { field, direction };
+  const sortBy: SortOption = {
+    field,
+    direction: (direction === "asc" || direction === "desc") ? direction : "desc"
+  };
 
   const currentPage = !searchParams.get("page")
     ? 1

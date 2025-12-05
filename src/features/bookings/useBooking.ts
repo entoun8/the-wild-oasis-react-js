@@ -11,7 +11,8 @@ export const useBooking = () => {
     error,
   } = useQuery({
     queryKey: ["booking", bookingId],
-    queryFn: () => getBooking(bookingId),
+    queryFn: () => getBooking(Number(bookingId)),
+    enabled: !!bookingId,
   });
 
   return { isLoading, booking, error };
