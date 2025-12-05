@@ -45,7 +45,8 @@ export const deleteCabinApi = async (id: number): Promise<void> => {
   const { error } = await supabase.from("cabins").delete().eq("id", id);
 
   if (error) {
-    throw new Error("Cabins could not be deleted");
+    console.error("Delete cabin error:", error);
+    throw new Error(error.message || "Cabins could not be deleted");
   }
 };
 
