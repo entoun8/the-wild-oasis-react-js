@@ -30,26 +30,7 @@ A modern, full-stack hotel management application built with React, TypeScript, 
 
 ## 🚀 Live Demo
 
-> **Note**: Add your deployed application URL here once you deploy to Vercel/Netlify
-
-## 📸 Screenshots
-
-### Dashboard
-
-![Dashboard](./docs/screenshots/dashboard.png)
-_Real-time analytics with sales charts, occupancy rates, and key metrics_
-
-### Booking Management
-
-![Bookings](./docs/screenshots/bookings.png)
-_Comprehensive booking table with filtering, sorting, and status management_
-
-### Cabin Management
-
-![Cabins](./docs/screenshots/cabins.png)
-_Visual cabin management with drag-and-drop image uploads_
-
-> **Note**: Create a `docs/screenshots` folder and add actual screenshots before pushing to GitHub
+**[View Live Application](https://the-wild-oasis-react-js.netlify.app/)** 🌐
 
 ## 🛠️ Tech Stack
 
@@ -136,16 +117,18 @@ cd the-wild-oasis-react-js
 npm install
 ```
 
-### 3. Configure Supabase
+### 3. Configure Environment Variables
 
 1. Create a new project at [supabase.com](https://supabase.com)
-2. Run the database schema (see `Database Setup` below)
-3. Update Supabase credentials in [src/services/supabase.ts](src/services/supabase.ts):
+2. Create a `.env` file in the project root:
 
-```typescript
-export const supabaseUrl = "YOUR_SUPABASE_URL";
-const supabaseKey = "YOUR_SUPABASE_ANON_KEY";
+```env
+VITE_SUPABASE_URL=your_supabase_project_url
+VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
+
+3. Get your Supabase credentials from: Project Settings → API
+4. **Important**: Never commit `.env` to version control (already in `.gitignore`)
 
 ### 4. Database Setup
 
@@ -291,6 +274,8 @@ the-wild-oasis/
 │   ├── App.tsx            # Root component with routing
 │   └── main.tsx           # Application entry point
 ├── public/                # Static assets
+│   └── _redirects         # Netlify SPA routing configuration
+├── .env                   # Environment variables (not in git)
 ├── CLAUDE.md              # AI assistant documentation
 └── README.md              # This file
 ```
@@ -303,6 +288,7 @@ the-wild-oasis/
 - ✅ **Input Validation**: Form-level validation with React Hook Form
 - ✅ **SQL Injection Prevention**: Parameterized queries via Supabase client
 - ✅ **XSS Protection**: React's built-in escaping
+- ✅ **Environment Variables**: Sensitive credentials stored securely outside source code
 
 ## 🚀 Deployment
 
@@ -315,17 +301,23 @@ vercel
 
 ### Deploy to Netlify
 
-```bash
-npm run build
-# Drag and drop 'dist' folder to Netlify
+1. **Create `public/_redirects` file** (handles SPA routing):
+```
+/*    /index.html   200
 ```
 
-### Environment Variables
+2. **Build and deploy**:
+```bash
+npm run build
+# Connect your GitHub repo to Netlify or drag and drop 'dist' folder
+```
 
-Configure the following in your deployment platform:
+3. **Configure environment variables** in Netlify:
+   - Go to Site Settings → Environment Variables
+   - Add `VITE_SUPABASE_URL` with your Supabase project URL
+   - Add `VITE_SUPABASE_ANON_KEY` with your Supabase anonymous key
 
-- `VITE_SUPABASE_URL`: Your Supabase project URL
-- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
+4. **Important**: The `_redirects` file ensures page refreshes work correctly in production
 
 ## 🤝 Contributing
 
